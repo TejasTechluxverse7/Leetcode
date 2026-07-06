@@ -1,5 +1,7 @@
 # 🚀 LeetCode Solutions – Tejas Kondhalkar
 
+[My LeetCode Profile](https://leetcode.com/u/IfggM8K0hl)
+
 ## 📌 About
 
 This repository contains my solutions to problems from LeetCode.
