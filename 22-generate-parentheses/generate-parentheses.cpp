@@ -1,26 +1,27 @@
 class Solution {
 public:
-    void solve(int open, int close, int n, string curr, vector<string>& result) {
-        // base case
-        if (curr.length() == 2 * n) {
-            result.push_back(curr);
+    vector<string> ans;
+
+    void backtrack(string s, int open, int close, int n) {
+        // A complete valid combination
+        if (open == n && close == n) {
+            ans.push_back(s);
             return;
         }
 
-        // add '(' if possible
+        // Add opening bracket
         if (open < n) {
-            solve(open + 1, close, n, curr + "(", result);
+            backtrack(s + "(", open + 1, close, n);
         }
 
-        // add ')' if valid
+        // Add closing bracket only when it is valid
         if (close < open) {
-            solve(open, close + 1, n, curr + ")", result);
+            backtrack(s + ")", open, close + 1, n);
         }
     }
 
     vector<string> generateParenthesis(int n) {
-        vector<string> result;
-        solve(0, 0, n, "", result);
-        return result;
+        backtrack("", 0, 0, n);
+        return ans;
     }
 };
